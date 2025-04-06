@@ -127,8 +127,6 @@ To use:
 
 The markdown formatting will automatically render beautifully on GitHub!
 
-📜 License
-Distributed under the MIT License [TEJ PRAVAL].
 
 📧 Contact
 Your Name - tejpraval32@gmail.com
