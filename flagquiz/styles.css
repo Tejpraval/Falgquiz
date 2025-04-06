@@ -1,0 +1,442 @@
+/* Import Google Fonts for typography */
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,
+            #8a2be2,
+            /* Neon Purple */
+            #4b0082,
+            /* Dark Indigo */
+            #0000ff,
+            /* Neon Blue */
+            #00ffff
+            /* Neon Cyan */
+        );
+
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 100px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes */
+}
+/* Main content container */
+.main-con {
+    display: flex;
+    /*  flex-direction: column; */
+    justify-content: center;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: 500px;
+    text-align: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 90px;
+    margin-left: 80px;
+    align-self: center;
+    font-family: "Lobster";
+    /*padding-top: 100px;*/
+}
+/* Dark mode toggle button positioning */
+.in-con {
+    /* display: flex;
+    justify-content: flex-start; */
+    align-self: flex-start;
+    margin: 30px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: "Bangers";
+    color: #8a2be2;
+}
+
+p {
+    color: #f6d365;
+}
+
+#mode-selection {
+    margin-bottom: 20px;
+}
+/* Mode selection buttons */
+#mode-selection button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    border-top-width: 5px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 5px;
+    border-color: #fda085;
+    border-radius: 10px;
+    background-color: #a6c1ee;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#score {
+    color: #a6c1ee;
+}
+
+#timer {
+    color: #a6c1ee;
+}
+
+#mode-selection button:hover {
+    background-color: #fda085;
+    transform: translate(5px, 5px);
+}
+
+#quiz-content.hidden {
+    display: none;
+}
+
+
+/* Flag Image Styles */
+#flag-image {
+    width: 200px;
+    border-right: 8px solid #fda085;
+    /* Right border */
+    border-bottom: 8px solid #fda085;
+    /* Bottom border */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 8px 8px 0 rgba(255, 218, 185, 0.6);
+    /* Shadow for normal mode */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Flag Image */
+#flag-image:hover {
+    transform: translate(-5px, -5px);
+    /* Slide towards the left */
+    box-shadow: 16px 16px 0 rgba(255, 218, 185, 0.8);
+    /* Enhanced shadow on hover */
+}
+
+/* Dark Mode Flag Image Styles */
+body.dark-mode #flag-image {
+    border-right: 8px solid #fbc2eb;
+    /* Right border for dark mode */
+    border-bottom: 8px solid #fbc2eb;
+    /* Bottom border for dark mode */
+    box-shadow: 16px 16px 0 rgba(251, 194, 235, 0.6);
+    /* Shadow for dark mode */
+}
+
+/* Dark Mode Hover Effect for Flag Image */
+body.dark-mode #flag-image:hover {
+    box-shadow: 12px 12px 0 rgba(251, 194, 235, 0.8);
+    /* Enhanced shadow on hover in dark mode */
+}
+
+#question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options button {
+    padding: 10px;
+    font-size: 1em;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-color: #fda085;
+    border-radius: 10px;
+    background-color: #a6c1ee;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.options button:hover {
+    background-color: #fda085;
+    transform: translate(5px, 5px);
+}
+
+button {
+    font-family: "Lobster";
+}
+
+#feedback {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#score {
+    margin-top: 10px;
+}
+
+#timer {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#dark-mode-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c757d;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #5a6268;
+    color: #a6c1ee;
+    transform: translate(-5px, -5px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg,
+            #ff9a9e,
+            /* Neon Pink */
+            #fad0c4,
+            /* Soft Peach */
+            #fbc2eb,
+            /* Neon Lavender */
+            #a6c1ee,
+            /* Neon Blue */
+            #f6d365,
+            /* Neon Yellow */
+            #fda085
+            /*Neon Orange*/
+        );
+
+}
+
+body.dark-mode h1 {
+    color: #fbc2eb;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow for depth */
+}
+
+body.dark-mode p {
+    color: #fda085;
+}
+
+body.dark-mode .quiz-container {
+    background-color: #444;
+}
+
+body.dark-mode #mode-selection button {
+    background-color: #a6c1ee;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-top-width: 5px;
+    border-bottom-width: 10px;
+    border-bottom-width: 15px;
+    border-left-width: 10px;
+    border-color: #fbc2eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+body.dark-mode #mode-selection button:hover {
+    background-color: #fbc2eb;
+    transform: translate(-5px, -5px);
+}
+
+body.dark-mode .options button {
+    background-color: #a6c1ee;
+    color: #fff;
+    border-top-width: 5px;
+    border-bottom-width: 10px;
+    border-bottom-width: 15px;
+    border-left-width: 10px;
+    border-color: #fbc2eb;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+}
+
+body.dark-mode .options button:hover {
+    background-color: #fbc2eb;
+    transform: translate(-5px, -5px);
+}
+
+body.dark-mode #submit-btn {
+    background-color: #28a745;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    background-color: #5a6268;
+    color: #a6c1ee;
+}
+
+.img-world {
+    width: 200px;
+    height: 200px;
+}
+/* Responsive design for larger screens */
+@media screen and (min-width:992px) {
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        height: 60%;
+        text-align: center;
+        align-items: center;
+        transition: background-color 0.3s, color 0.3s;
+        font-size: 40px;
+        padding-bottom: 130px;
+        padding-top: 80px;
+    }
+
+    .con {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Flag Image Styles */
+    #flag-image {
+        width: 400px;
+        /* Adjust size as needed */
+        border-right: 8px solid #fda085;
+        /* Right border */
+        border-bottom: 8px solid #fda085;
+        /* Bottom border */
+        border-radius: 10px;
+        /* Rounded corners */
+        box-shadow: 16px 16px 0 rgba(255, 218, 185, 0.6);
+        /* Shadow for normal mode */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    /* Hover Effect for Flag Image */
+    #flag-image:hover {
+        transform: translate(-5px, -5px);
+        /* Slide towards the left */
+        box-shadow: 12px 12px 0 rgba(255, 218, 185, 0.8);
+        /* Enhanced shadow on hover */
+    }
+
+    /* Dark Mode Flag Image Styles */
+    body.dark-mode #flag-image {
+        border-right: 8px solid #fbc2eb;
+        /* Right border for dark mode */
+        border-bottom: 8px solid #fbc2eb;
+        /* Bottom border for dark mode */
+        box-shadow: 16px 16px 0 rgba(251, 194, 235, 0.6);
+        /* Shadow for dark mode */
+    }
+
+    /* Dark Mode Hover Effect for Flag Image */
+    body.dark-mode #flag-image:hover {
+        box-shadow: 12px 12px 0 rgba(251, 194, 235, 0.8);
+        /* Enhanced shadow on hover in dark mode */
+    }
+
+    #mode-selection button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 1em;
+        border-top-width: 5px;
+        border-bottom-width: 15px;
+        border-left-width: 10px;
+        border-right-width: 4px;
+        border-color: #fda085;
+        border-radius: 40px;
+        background-color: #a6c1ee;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    body.dark-mode #mode-selection button {
+        background-color: #a6c1ee;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-top-width: 5px;
+        border-bottom-width: 10px;
+        border-bottom-width: 15px;
+        border-left-width: 10px;
+        border-color: #fbc2eb;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .img-world {
+        width: 250px;
+        height: 250px;
+        /*         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+        /*   transform: translate(-5px, -5px); */
+    }
+
+    .main-con {
+        display: flex;
+        justify-content: center;
+    }
+
+    .in-con {
+        /* display: flex;
+    justify-content: flex-start; */
+        align-self: flex-start;
+        margin: 30px;
+    }
+
+}
+
+@media screen and (max-width:575px) {
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 1000px;
+        height: 700px;
+        text-align: center;
+        align-items: center;
+        transition: background-color 0.3s, color 0.3s;
+        margin-top: 90px;
+        margin-left: 80px;
+        align-self: center;
+        font-family: "Lobster";
+
+    }
+
+}

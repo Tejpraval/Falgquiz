@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic meta tags for character set and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Challenge Quiz</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main container for the entire quiz -->
+    <div class="main-con">
+        <!-- Quiz container with all content -->
+        <div class="quiz-container">
+            <!-- Difficulty selection section (visible initially) -->
+            <div id="mode-selection">
+                <h1>Flag Challenge Quiz</h1>
+                 <!-- Decorative world image -->
+                <img src="https://png.pngtree.com/element_pic/00/16/09/2057e124daadd04.png" class="img-world" />
+                <p>Select Difficulty:</p>
+                <!-- Difficulty level buttons -->
+                <button id="easy-btn">Easy</button>
+                <button id="medium-btn">Medium</button>
+                <button id="hard-btn">Hard</button>
+            </div>
+             <!-- Quiz content section (hidden initially) -->
+            <div id="quiz-content" class="hidden">
+                <div class="con">
+                    <!-- Flag image container -->
+                    <div><img id="flag-image" src="" alt="Flag Image"></div>
+                    <!-- Feedback and score display -->
+                    <div> 
+                        <p id="feedback"></p>
+                        <p id="score">Score: 0</p>
+                        <p id="timer">Time Left: 10</p>
+                    </div>
+                </div>
+                <!-- Question and options container -->
+                <div id="question-container">
+                    <p id="question"></p>
+                    <div id="options" class="options"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Dark mode toggle button -->
+        <button id="dark-mode-toggle" class="in-con">Dark Mode</button>
+    </div>
+    <!-- External JavaScript files -->
+    <script src="script.js"></script>
+</body>
+
+</html>
